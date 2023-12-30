@@ -6,7 +6,7 @@ import '../view/customer/favorite_screen.dart';
 import '../view/customer/showFood_screen.dart';
 import '../view/constance.dart';
 
-late int Index = 0;
+int Index = 0;
 
 class nav_buttom_bar extends StatefulWidget {
   final int selectedIndex;
@@ -23,7 +23,7 @@ class _MyWidgetState extends State<nav_buttom_bar> {
   Widget build(BuildContext context) {
     return FFNavigationBar(
       theme: FFNavigationBarTheme(
-        barBackgroundColor: Color.fromARGB(255, 226, 226, 226),
+        barBackgroundColor: const Color.fromARGB(255, 226, 226, 226),
         itemWidth: 47,
         selectedItemBackgroundColor: BlurStyle,
         selectedItemIconColor: Colors.white,

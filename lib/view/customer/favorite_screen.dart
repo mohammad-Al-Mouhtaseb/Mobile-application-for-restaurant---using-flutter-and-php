@@ -34,7 +34,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
               return ItemFavorite(size: size);
             },
           ),
-          bottomNavigationBar: nav_buttom_bar(selectedIndex: 3)),
+          bottomNavigationBar: const nav_buttom_bar(selectedIndex: 3)),
     );
   }
 }

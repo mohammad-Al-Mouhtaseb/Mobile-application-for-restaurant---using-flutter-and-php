@@ -40,18 +40,18 @@ class ItemFavorite extends StatelessWidget {
                       child: Image.asset("images/foo.webp")),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(top: 8, left: 8, bottom: 3),
+                  padding: const EdgeInsets.only(top: 8, left: 8, bottom: 3),
                   child: Row(
                     children: [
                       //add name food
-                      Text(
+                      const Text(
                         "crooissants",
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                             color: ktext),
                       ),
-                      Spacer(),
+                      const Spacer(),
                       //to remove frome favorite
                       InkWell(
                         //when prees this icon remove frome favorite f=0
@@ -67,7 +67,7 @@ class ItemFavorite extends StatelessWidget {
                 ),
                 //add to classify
                 const Padding(
-                  padding: const EdgeInsets.only(right: 295, bottom: 6),
+                  padding: EdgeInsets.only(right: 295, bottom: 6),
                   child: Text(
                     "brakefast",
                     style: TextStyle(color: Color.fromARGB(208, 79, 7, 7)),
@@ -75,7 +75,7 @@ class ItemFavorite extends StatelessWidget {
                 ),
                 // text to add price
                 const Padding(
-                  padding: const EdgeInsets.only(right: 320),
+                  padding: EdgeInsets.only(right: 320),
                   child: Text(
                     "45 \$",
                     style: TextStyle(

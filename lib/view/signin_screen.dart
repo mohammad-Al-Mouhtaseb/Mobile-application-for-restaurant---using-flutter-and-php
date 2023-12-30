@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:haven/main.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'dart:io';
 
 import 'constance.dart';
 import '../function_front/custom_icon.dart';
@@ -28,9 +27,7 @@ class SigninScreen extends StatelessWidget {
           'pass': pass,
         },
       );
-      print(res.statusCode);
       if (res.statusCode == 200) {
-        print(jsonDecode(res.body));
         if (jsonDecode(res.body) == false) {
           showDialog(
             context: context,

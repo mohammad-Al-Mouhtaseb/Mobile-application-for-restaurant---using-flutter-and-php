@@ -31,9 +31,9 @@ class ItemFood extends StatelessWidget {
                   children: [
                     Flexible(
                       child: RichText(
-                        text: TextSpan(
+                        text: const TextSpan(
                             text: '\$',
-                            style: const TextStyle(color: ktext, fontSize: 15),
+                            style: TextStyle(color: ktext, fontSize: 15),
                             children: <TextSpan>[
                               TextSpan(
                                   text: "168.00",
@@ -64,7 +64,7 @@ class ItemFood extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Row(
                   children: [
                     Text(

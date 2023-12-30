@@ -73,7 +73,7 @@ class _MenuState extends State<Menu> {
             itemBuilder: (context, index) {
               return ItemFood(index, dishesMapUrl!, dishesMapName!);
             }),
-        bottomNavigationBar: nav_buttom_bar(selectedIndex: 1),
+        bottomNavigationBar: const nav_buttom_bar(selectedIndex: 1),
       ),
     );
   }

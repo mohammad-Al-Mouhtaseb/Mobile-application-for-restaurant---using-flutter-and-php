@@ -30,7 +30,7 @@ class Discount extends StatelessWidget {
                   height: double.infinity,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(18),
-                      color: Color.fromARGB(100, 222, 237, 247)),
+                      color: const Color.fromARGB(100, 222, 237, 247)),
                   child: const Padding(
                     padding: EdgeInsets.all(8.0),
                     child: Column(

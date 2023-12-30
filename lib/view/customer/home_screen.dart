@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:haven/main.dart';
 import 'package:haven/view/customer/searsh_screen.dart';
 import 'package:haven/view/customer/showFood_screen.dart';
-import 'package:haven/view/login_screen.dart';
-import 'searsh_screen.dart';
 import '../../function_front/nav_buttom_bar.dart';
 import '../constance.dart';
 import '../../function_front/swiper_data.dart';
@@ -37,7 +35,6 @@ class _HomePageState extends State<home_screen> {
     PopulardishesMapUrl = [];
     PopulardishesMapName = [];
     var res = await http.get(Uri.parse(url));
-    print(res.statusCode);
     if (res.statusCode == 200) {
       get_dishes_data(res.body);
     }
@@ -139,7 +136,7 @@ class _HomePageState extends State<home_screen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       "Popular Dishes",
                       style: TextStyle(
                         color: ktext,
@@ -151,7 +148,7 @@ class _HomePageState extends State<home_screen> {
                       onPressed: () {
                         Navigator.pushNamed(context, Menu.id);
                       },
-                      child: Text(
+                      child: const Text(
                         "Show All ",
                         style: TextStyle(
                           color: BlurStyle,
@@ -184,7 +181,7 @@ class _HomePageState extends State<home_screen> {
                             ),
                           ),
                           Text(PopulardishesMapName![index],
-                              style: TextStyle(fontSize: 14.5)),
+                              style: const TextStyle(fontSize: 14.5)),
                         ],
                       );
                     },
@@ -193,7 +190,7 @@ class _HomePageState extends State<home_screen> {
               ],
             ),
           ),
-          bottomNavigationBar: nav_buttom_bar(selectedIndex: 0),
+          bottomNavigationBar: const nav_buttom_bar(selectedIndex: 0),
         ),
       ),
     );
