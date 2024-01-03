@@ -8,7 +8,9 @@ Move the folder(bakend) to server folders like(www or htdocs)
 <h4>2. Import database flutter</h4>
   <h5>Import database (bakeng/flutter.xml)</h5>
   Open http://localhost/phpmyadmin
-  ![image](https://github.com/mohammad-Al-Mouhtaseb/map/assets/83731873/7275f010-8dc0-4f64-8412-9139b695c063)
+  <br>
+  <img src="https://github.com/mohammad-Al-Mouhtaseb/map/assets/83731873/7275f010-8dc0-4f64-8412-9139b695c063">
+  <div style="display:none">![image](https://github.com/mohammad-Al-Mouhtaseb/map/assets/83731873/7275f010-8dc0-4f64-8412-9139b695c063)</div>
   Choose file flutter.xml
   Edit format to xml
 <h4>Edit ip</h4>
