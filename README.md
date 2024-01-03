@@ -2,7 +2,7 @@
 <h2>Teacher: Zainab Morad</h2>
 <h2>Students: Mohammad Al Mouhtaseb & Nour Srour Mallah</h2>
 <h3>Steps to run this code on your computer:<h3>
-&emsp <h3>1. Move the folder bakend</h3>
+&emsp; <h3>1. Move the folder bakend</h3>
 &emsp &emsp Move the folder(bakend) to server folders like(www or htdocs)
 &emsp <h3>2. Import database flutter</h3>
 &emsp &emsp Import database (bakeng/flutter.xml)<br>
