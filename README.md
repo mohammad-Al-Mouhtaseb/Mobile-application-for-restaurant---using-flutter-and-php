@@ -1,4 +1,4 @@
-<style>p{fontsize:12px;}</style>
+<style>p{font-size:12px;}</style>
 <h1>Mobile Application Project</h1>
 <h2>Teacher: Zainab Morad</h2>
 <h2>Students: Mohammad Al Mouhtaseb & Nour Srour Mallah</h2>
@@ -9,7 +9,6 @@ Move the folder(bakend) to server folders like(www or htdocs)
 <h4>2. Import database flutter</h4>
 <h5>Import database (bakeng/flutter.xml)</h5>
 <p>Open http://localhost/phpmyadmin</p>
-<br>
 ![image](https://github.com/mohammad-Al-Mouhtaseb/map/assets/83731873/478c1b7f-3c2b-48c5-ad85-3efadf351835)
 <br>
 <p>Choose file flutter.xml</p>
