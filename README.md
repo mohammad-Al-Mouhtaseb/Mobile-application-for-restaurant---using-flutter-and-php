@@ -7,7 +7,7 @@
 &emsp; <h3>2. Import database flutter</h3>
 &emsp; &emsp; Import database (bakeng/flutter.xml)<br>
 &emsp; &emsp; &emsp; Open http://localhost/phpmyadmin<br>
-&emsp; &emsp; &emsp; ![image](https://github.com/mohammad-Al-Mouhtaseb/map/assets/83731873/478c1b7f-3c2b-48c5-ad85-3efadf351835)<br>
+&emsp; &emsp; &emsp; Open import tab<br>
 &emsp; &emsp; &emsp; Choose file flutter.xml<br>
 &emsp; &emsp; &emsp; Edit format to xml
 &emsp; <h3>3. Edit ip</h3>
