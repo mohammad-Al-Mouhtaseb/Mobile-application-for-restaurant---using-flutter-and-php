@@ -1,16 +1,14 @@
-# haven
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<h1>Mobile Application Project</h1>
+<h2>Teacher: Zainab Morad</h2>
+<h2>Students: Mohammad Al Mouhtaseb & Nour Srour Mallah</h2>
+<h3>Steps to run this code on your computer:<h3>
+&emsp; <h3>1. Move the folder bakend</h3>
+&emsp; &emsp; Move the folder(bakend) to server folders like(www or htdocs)
+&emsp; <h3>2. Import database flutter</h3>
+&emsp; &emsp; Import database (bakeng/flutter.xml)<br>
+&emsp; &emsp; &emsp; Open http://localhost/phpmyadmin<br>
+&emsp; &emsp; &emsp; Open import tab<br>
+&emsp; &emsp; &emsp; Choose file flutter.xml<br>
+&emsp; &emsp; &emsp; Edit format to xml
+&emsp; <h3>3. Edit ip</h3>
+&emsp; &emsp; Edit Ip in (lib/main line 18) to your Ip address or "localhost"
