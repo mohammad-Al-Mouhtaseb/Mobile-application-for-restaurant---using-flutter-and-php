@@ -16,5 +16,6 @@
 <p>
   *for login to system as end user: use your aiu email as "email" and aiu id as "password"
   like "email":202010301@aiu.edu.sy , "password":202010301
+  <br>
   *for login to system as admin (restorant admin): use "email":admin , "password":0000
 </p>
