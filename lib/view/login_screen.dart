@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:haven/main.dart';
+import 'package:haven/view/restaurants/rest.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -47,12 +48,15 @@ class LoginScreen extends StatelessWidget {
           session_fname = red['firstname'];
           session_lname = red['lastname'];
           session_photo = base64Decode(red['photo']);
-
-          Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                builder: (context) => home_screen(),
-              ));
+          if (email == "admin") {
+            Navigator.pushNamed(context, rest.id);
+          } else {
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => home_screen(),
+                ));
+          }
         }
       }
     }
@@ -72,7 +76,7 @@ class LoginScreen extends StatelessWidget {
               children: [
                 const CustomIcon(name: " login"),
                 SizedBox(
-                  height: heightScreen * .1,
+                  height: heightScreen * .15,
                 ),
                 CustomTextField(
                   icon: Icons.email,

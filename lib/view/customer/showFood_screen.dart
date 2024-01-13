@@ -10,6 +10,7 @@ import 'package:http/http.dart' as http;
 
 List<String>? dishesMapUrl;
 List<String>? dishesMapName;
+List<String>? dishesMapPrice;
 
 class Menu extends StatefulWidget {
   const Menu({super.key});
@@ -30,6 +31,7 @@ class _MenuState extends State<Menu> {
     var url = "http://$ip/PROJECT/fun/getAllMeal.php";
     dishesMapUrl = [];
     dishesMapName = [];
+    dishesMapPrice = [];
     var res = await http.get(Uri.parse(url));
     print(res.statusCode);
     if (res.statusCode == 200) {
@@ -44,6 +46,7 @@ class _MenuState extends State<Menu> {
       setState(() {
         dishesMapName?.add(meal['strMeal']);
         dishesMapUrl?.add(meal['strMealThumb']);
+        dishesMapPrice?.add(meal['price']);
       });
     }
   }
@@ -71,7 +74,8 @@ class _MenuState extends State<Menu> {
                 mainAxisSpacing: 0,
                 childAspectRatio: 0.75),
             itemBuilder: (context, index) {
-              return ItemFood(index, dishesMapUrl!, dishesMapName!);
+              return ItemFood(
+                  index, dishesMapUrl!, dishesMapName!, dishesMapPrice!);
             }),
         bottomNavigationBar: const nav_buttom_bar(selectedIndex: 1),
       ),

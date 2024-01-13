@@ -10,6 +10,7 @@ import 'package:http/http.dart' as http;
 
 List<String>? SearshdishesMapUrl;
 List<String>? SearshdishesMapName;
+List<String>? SearshdishesMapPrice;
 
 class searsh_screen extends StatefulWidget {
   const searsh_screen({super.key});
@@ -32,6 +33,7 @@ class _searsh_screenState extends State<searsh_screen> {
     var url = "http://$ip/PROJECT/fun/searshMeal.php?s=$search";
     SearshdishesMapUrl = [];
     SearshdishesMapName = [];
+    SearshdishesMapPrice = [];
     var res = await http.get(Uri.parse(url));
     print(res.statusCode);
     if (res.statusCode == 200) {
@@ -46,6 +48,7 @@ class _searsh_screenState extends State<searsh_screen> {
       setState(() {
         SearshdishesMapName?.add(meal['strMeal']);
         SearshdishesMapUrl?.add(meal['strMealThumb']);
+        SearshdishesMapPrice?.add(meal['price']);
       });
     }
   }
@@ -69,7 +72,8 @@ class _searsh_screenState extends State<searsh_screen> {
                 mainAxisSpacing: 0,
                 childAspectRatio: 0.75),
             itemBuilder: (context, index) {
-              return ItemFood(index, SearshdishesMapUrl!, SearshdishesMapName!);
+              return ItemFood(index, SearshdishesMapUrl!, SearshdishesMapName!,
+                  SearshdishesMapPrice!);
             }),
       ),
     );

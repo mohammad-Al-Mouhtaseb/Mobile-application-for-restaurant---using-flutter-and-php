@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:haven/view/customer/menu_screen.dart';
 import '../view/customer/home_screen.dart';
 import '../view/profile_screen.dart';
 import 'package:ff_navigation_bar_plus/ff_navigation_bar_plus.dart';
@@ -42,7 +43,7 @@ class _MyWidgetState extends State<nav_buttom_bar> {
               break;
             case 1:
               Navigator.pushNamedAndRemoveUntil(
-                  context, Menu.id, (route) => false);
+                  context, FullMenu.id, (route) => false);
               break;
             case 2:
               break;

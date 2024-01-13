@@ -136,7 +136,7 @@ class _HomePageState extends State<home_screen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
+                    Text(
                       "Popular Dishes",
                       style: TextStyle(
                         color: ktext,
@@ -148,7 +148,7 @@ class _HomePageState extends State<home_screen> {
                       onPressed: () {
                         Navigator.pushNamed(context, Menu.id);
                       },
-                      child: const Text(
+                      child: Text(
                         "Show All ",
                         style: TextStyle(
                           color: BlurStyle,

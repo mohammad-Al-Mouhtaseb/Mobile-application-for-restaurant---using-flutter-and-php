@@ -5,10 +5,12 @@ class ItemFood extends StatelessWidget {
   late int _index;
   late List _url;
   late List _name;
-  ItemFood(int index, List url, List name) {
+  late List _price;
+  ItemFood(int index, List url, List name, List price) {
     _index = index;
     _url = url;
     _name = name;
+    _price = price;
   }
   @override
   Widget build(BuildContext context) {
@@ -31,19 +33,19 @@ class ItemFood extends StatelessWidget {
                   children: [
                     Flexible(
                       child: RichText(
-                        text: const TextSpan(
+                        text: TextSpan(
                             text: '\$',
                             style: TextStyle(color: ktext, fontSize: 15),
                             children: <TextSpan>[
                               TextSpan(
-                                  text: "168.00",
+                                  text: _price[_index],
                                   style: TextStyle(
                                       color: ktext,
                                       fontWeight: FontWeight.w600)),
                             ]),
                       ),
                     ),
-                    const Icon(
+                    Icon(
                       Icons.favorite,
                       color: ktext,
                     ),

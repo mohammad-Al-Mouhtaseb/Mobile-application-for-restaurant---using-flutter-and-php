@@ -44,19 +44,19 @@ class ItemFavorite extends StatelessWidget {
                   child: Row(
                     children: [
                       //add name food
-                      const Text(
+                      Text(
                         "crooissants",
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                             color: ktext),
                       ),
-                      const Spacer(),
+                       Spacer(),
                       //to remove frome favorite
                       InkWell(
                         //when prees this icon remove frome favorite f=0
                         onTap: () {},
-                        child: const Icon(
+                        child:  Icon(
                           Icons.delete,
                           color: ktext,
                           size: 30,
@@ -74,7 +74,7 @@ class ItemFavorite extends StatelessWidget {
                   ),
                 ),
                 // text to add price
-                const Padding(
+                 Padding(
                   padding: EdgeInsets.only(right: 320),
                   child: Text(
                     "45 \$",
