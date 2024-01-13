@@ -8,7 +8,13 @@
 &emsp; &emsp; Import database (bakeng/flutter.xml)<br>
 &emsp; &emsp; &emsp; Open http://localhost/phpmyadmin<br>
 &emsp; &emsp; &emsp; Open import tab<br>
-&emsp; &emsp; &emsp; Choose file flutter.xml<br>
-&emsp; &emsp; &emsp; Edit format to xml
+&emsp; &emsp; &emsp; Choose file flutter.sql<br>
 &emsp; <h3>3. Edit ip</h3>
 &emsp; &emsp; Edit Ip in (lib/main line 18) to your Ip address or "localhost"
+
+<h3>Testing:</h3>
+<p>
+  *for login to system as end user: use your aiu email as "email" and aiu id as "password"
+  like "email":202010301@aiu.edu.sy , "password":202010301
+  *for login to system as admin (restorant admin): use "email":admin , "password":0000
+</p>
