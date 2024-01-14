@@ -1,7 +1,7 @@
 <?php
 include("../connect.php");
-$d = htmlspecialchars($_GET["d"]);
-$sql = "DELETE FROM meal WHERE idMeal = $d";
+$id = htmlspecialchars($_POST["idMeal"]);
+$sql = "DELETE FROM meal WHERE idMeal = $id";
 $result = $con->query($sql);
 echo json_encode($result);
 ?>

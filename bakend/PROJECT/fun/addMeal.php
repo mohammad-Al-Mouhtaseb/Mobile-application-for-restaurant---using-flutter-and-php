@@ -1,10 +1,11 @@
 <?php
 include("../connect.php");
-$strMeal = htmlspecialchars($_GET["strMeal"]);
-$strMealThumb = htmlspecialchars($_GET["strMealThumb"]);
-$idMeal = htmlspecialchars($_GET["idMeal"]);
-$description = htmlspecialchars($_GET["description"]);
-$sql = "INSERT INTO `meal`(`strMeal`, `strMealThumb`, `idMeal`, `description`) VALUES ('$strMeal','$strMealThumb','$idMeal','$description')";
+$strMeal = htmlspecialchars($_POST["strMeal"]);
+$strMealThumb = htmlspecialchars($_POST["strMealThumb"]);
+$idMeal = htmlspecialchars($_POST["idMeal"]);
+$description = htmlspecialchars($_POST["description"]);
+$price = htmlspecialchars($_POST["price"]);
+$sql = "INSERT INTO `meal`(`strMeal`, `strMealThumb`, `idMeal`, `description`, `price`) VALUES ('$strMeal','$strMealThumb','$idMeal','$description','$price')";
 $result = $con->query($sql);
 echo json_encode($result);
 ?>
