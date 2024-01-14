@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:haven/function_front/showdialog.dart';
 import 'package:haven/view/customer/menu_screen.dart';
 
 import '../view/constance.dart';
-import 'package:haven/main.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
 
 class DetailsWedgit extends StatefulWidget {
   final String ids;
@@ -43,35 +39,6 @@ class _DetailsWedgitState extends State<DetailsWedgit> {
 
   @override
   Widget build(BuildContext context) {
-    Future addtocard(String userid, String dishid, String num) async {
-      var url = "http://$ip/PROJECT/fun/addCart.php/";
-      var res = await http.post(
-        Uri.parse(url),
-        body: {
-          'userid': userid,
-          'dishid': dishid,
-          'num': num,
-        },
-      );
-      if (res.statusCode == 200) {
-        if (jsonDecode(res.body) == null || jsonDecode(res.body) == false) {
-          showdialog(
-            context,
-            "Error",
-            "Some thing not valid.",
-            "Try agin",
-          );
-        } else {
-          showdialog(
-            context,
-            "Success",
-            "",
-            "Ok",
-          );
-        }
-      }
-    }
-
     String ids = widget.ids;
     String dess = widget.des;
     String urls = widget.urls;
@@ -83,7 +50,7 @@ class _DetailsWedgitState extends State<DetailsWedgit> {
         Stack(
           children: [
             SizedBox(
-              height: size.height * 0.5,
+              height: size.height * 0.4,
               child: ClipRRect(
                 borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(40),
@@ -92,6 +59,7 @@ class _DetailsWedgitState extends State<DetailsWedgit> {
                   child: Image.network(
                     urls,
                     fit: BoxFit.cover,
+                    width: double.infinity,
                   ),
                 ),
               ),
@@ -139,7 +107,7 @@ class _DetailsWedgitState extends State<DetailsWedgit> {
                     fontSize: 25, fontWeight: FontWeight.bold, color: ktext),
               ),
             ),
-            const Spacer(),
+            Spacer(),
             FloatingActionButton(
               onPressed: () {
                 inc();
@@ -155,7 +123,7 @@ class _DetailsWedgitState extends State<DetailsWedgit> {
               width: 4,
             ),
             Text(
-              "$amount",
+              "${amount}",
               style: TextStyle(
                   fontSize: 24, fontWeight: FontWeight.bold, color: ktext),
             ),
@@ -179,7 +147,7 @@ class _DetailsWedgitState extends State<DetailsWedgit> {
           ],
         ),
         SizedBox(
-          height: size.height * 0.26,
+          height: size.height * 0.34,
           child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: Text(
@@ -194,9 +162,7 @@ class _DetailsWedgitState extends State<DetailsWedgit> {
           child: SizedBox(
             height: size.height * 0.06,
             child: ElevatedButton(
-              onPressed: () {
-                addtocard(session_id, ids, "$amount");
-              },
+              onPressed: () {},
               child: Text(
                 "add to card",
                 style: TextStyle(fontSize: 20),

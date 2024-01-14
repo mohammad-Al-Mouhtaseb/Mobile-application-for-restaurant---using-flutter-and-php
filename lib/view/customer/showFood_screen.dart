@@ -73,9 +73,9 @@ class _MenuState extends State<Menu> {
             itemCount: dishesMapUrl?.length,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                crossAxisSpacing: 0.0,
+                crossAxisSpacing: 0,
                 mainAxisSpacing: 0,
-                childAspectRatio: 0.75),
+                childAspectRatio: 0.76),
             itemBuilder: (context, index) {
               return ItemFood(
                   index, dishesMapUrl!, dishesMapName!, dishesMapPrice!);

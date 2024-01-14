@@ -16,7 +16,7 @@ class ItemFood extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Padding(
-      padding: const EdgeInsets.all(7.0),
+      padding: const EdgeInsets.all(5.0),
       child: Material(
         borderRadius: BorderRadius.circular(8.0),
         color: kitemContainer,
@@ -31,7 +31,7 @@ class ItemFood extends StatelessWidget {
                 //  borderRadius: BorderRadius.only(topLeft: Radius.circular(20)),
 
                 child: SizedBox(
-                  height: size.height * 0.2,
+                  height: size.height * 0.225,
                   child: Image.network(
                     _url[_index],
                     fit: BoxFit.cover,
@@ -40,7 +40,7 @@ class ItemFood extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(7.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -51,22 +51,23 @@ class ItemFood extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 17,
                         color: ktext,
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w800,
                       ),
-                    ),
-                    SizedBox(
-                      width: 30,
                     ),
                     Flexible(
                       child: RichText(
                         text: TextSpan(
-                            text: '\$',
-                            style: TextStyle(color: ktext, fontSize: 16),
+                            text: _price[_index++],
+                            style: TextStyle(
+                                color: ktext,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600),
                             children: <TextSpan>[
                               TextSpan(
-                                  text: _price[_index++],
+                                  text: '\$',
                                   style: TextStyle(
                                       color: ktext,
+                                      fontSize: 16,
                                       fontWeight: FontWeight.w600)),
                             ]),
                       ),

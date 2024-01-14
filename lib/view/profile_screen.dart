@@ -18,9 +18,16 @@ class _MyWidgetState extends State<profile_screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Profile"),
-        backgroundColor: Colors.blue[300],
+        title: Text(
+          "Profile",
+          style: TextStyle(
+            fontFamily: "Pacifico",
+          ),
+        ),
+        backgroundColor: Color.fromARGB(255, 76, 120, 167),
+        centerTitle: true,
       ),
+      backgroundColor: kMainColor,
       body: Column(
         children: [
           Container(
@@ -28,7 +35,7 @@ class _MyWidgetState extends State<profile_screen> {
               borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(25),
                   bottomRight: Radius.circular(25)),
-              color: Colors.blue[300],
+              color: Color.fromARGB(255, 76, 120, 167),
             ),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 30),
@@ -39,7 +46,7 @@ class _MyWidgetState extends State<profile_screen> {
                   Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: CircleAvatar(
-                      backgroundColor: Color.fromARGB(255, 194, 214, 224),
+                      backgroundColor: kSecondColor,
                       radius: 40,
                       backgroundImage: MemoryImage(session_photo),
                     ),
@@ -47,8 +54,10 @@ class _MyWidgetState extends State<profile_screen> {
                   Text(
                     "$session_fname$session_lname",
                     style: TextStyle(
-                      fontSize: 17,
+                      fontSize: 20,
                       fontWeight: FontWeight.w500,
+                      color: kSecondColor,
+                      fontFamily: "Pacifico",
                     ),
                   ),
                 ],
@@ -56,7 +65,7 @@ class _MyWidgetState extends State<profile_screen> {
             ),
           ),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 50, vertical: 40),
+            margin: EdgeInsets.symmetric(horizontal: 50, vertical: 60),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               color: kSecondColor,

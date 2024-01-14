@@ -57,7 +57,7 @@ class _searsh_screenState extends State<searsh_screen> {
         dishMapIndex?.add(meal['idMeal']);
         dishesMapName?.add(meal['strMeal']);
         dishesMapUrl?.add(meal['strMealThumb']);
-        dishesMapdesc?.add(meal['strMealThumb']);
+        dishesMapdesc?.add(meal['description']);
 
         if (meal.containsKey('price') && meal['price'] != null) {
           dishesMapprice?.add(meal['price']);

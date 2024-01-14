@@ -35,15 +35,6 @@ class MenuAppBar extends StatelessWidget {
           },
         ),
       ),
-      actions: [
-        Padding(
-          padding: const EdgeInsets.only(right: 16),
-          child: CircleAvatar(
-            backgroundColor: kSecondColor,
-            child: Icon(Icons.search),
-          ),
-        ),
-      ],
     );
   }
 }
