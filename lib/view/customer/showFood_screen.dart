@@ -7,6 +7,7 @@ import '../../function_front/item_food.dart';
 import 'dart:convert';
 import 'package:haven/main.dart';
 import 'package:http/http.dart' as http;
+import 'package:haven/main.dart';
 
 List<String>? dishesMapUrl;
 List<String>? dishesMapName;
@@ -28,25 +29,27 @@ class _MenuState extends State<Menu> {
   }
 
   Future get_dishes() async {
-    var url = "http://$ip/PROJECT/fun/getAllMeal.php";
+    var url = "http://$ip/PROJECT/fun/getCart.php";
     dishesMapUrl = [];
     dishesMapName = [];
     dishesMapPrice = [];
-    var res = await http.get(Uri.parse(url));
-    print(res.statusCode);
+    var res = await http.post(
+      Uri.parse(url),
+      body: {'userid': session_id},
+    );
+
     if (res.statusCode == 200) {
       get_dishes_data(res.body);
     }
   }
 
   void get_dishes_data(String jsonString) {
-    var data = jsonDecode(jsonString);
-    var meals = data['meals'] as List<dynamic>;
-    for (final meal in meals) {
+    var data = jsonDecode(jsonString) as List<dynamic>;
+    for (final meal in data) {
       setState(() {
         dishesMapName?.add(meal['strMeal']);
         dishesMapUrl?.add(meal['strMealThumb']);
-        dishesMapPrice?.add(meal['price']);
+        dishesMapPrice?.add(meal['price'] + "*" + meal['number'].toString());
       });
     }
   }
@@ -58,7 +61,7 @@ class _MenuState extends State<Menu> {
         appBar: AppBar(
           elevation: 4,
           title: const Text(
-            'menu',
+            'Cart',
             style: TextStyle(fontFamily: "Pacifico"),
           ),
           backgroundColor: const Color.fromARGB(149, 159, 190, 223),

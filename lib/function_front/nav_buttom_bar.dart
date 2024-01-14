@@ -4,7 +4,7 @@ import '../view/customer/home_screen.dart';
 import '../view/profile_screen.dart';
 import 'package:ff_navigation_bar_plus/ff_navigation_bar_plus.dart';
 import '../view/customer/favorite_screen.dart';
-import '../view/customer/showFood_screen.dart';
+import '../view/customer/cart.dart';
 import '../view/constance.dart';
 
 int Index = 0;
@@ -46,6 +46,8 @@ class _MyWidgetState extends State<nav_buttom_bar> {
                   context, FullMenu.id, (route) => false);
               break;
             case 2:
+              Navigator.pushNamedAndRemoveUntil(
+                  context, cart.id, (route) => false);
               break;
             case 3:
               Navigator.pushNamedAndRemoveUntil(

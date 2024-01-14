@@ -26,33 +26,7 @@ class ItemFood extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 5, right: 5, top: 8),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Flexible(
-                      child: RichText(
-                        text: TextSpan(
-                            text: '\$',
-                            style: TextStyle(color: ktext, fontSize: 15),
-                            children: <TextSpan>[
-                              TextSpan(
-                                  text: _price[_index],
-                                  style: TextStyle(
-                                      color: ktext,
-                                      fontWeight: FontWeight.w600)),
-                            ]),
-                      ),
-                    ),
-                    Icon(
-                      Icons.favorite,
-                      color: ktext,
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 20),
               ClipRRect(
                 //  borderRadius: BorderRadius.only(topLeft: Radius.circular(20)),
 
@@ -68,15 +42,33 @@ class ItemFood extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      _name[_index++],
+                      _name[_index],
                       overflow: TextOverflow.ellipsis,
                       maxLines: 2,
                       style: TextStyle(
-                        fontSize: 15.5,
+                        fontSize: 17,
                         color: ktext,
                         fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 30,
+                    ),
+                    Flexible(
+                      child: RichText(
+                        text: TextSpan(
+                            text: '\$',
+                            style: TextStyle(color: ktext, fontSize: 16),
+                            children: <TextSpan>[
+                              TextSpan(
+                                  text: _price[_index++],
+                                  style: TextStyle(
+                                      color: ktext,
+                                      fontWeight: FontWeight.w600)),
+                            ]),
                       ),
                     ),
                   ],

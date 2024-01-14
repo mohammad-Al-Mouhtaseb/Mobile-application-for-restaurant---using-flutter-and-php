@@ -12,14 +12,16 @@ import 'view/splash_screen.dart';
 import 'view/customer/searsh_screen.dart';
 import 'view/them.dart';
 import 'view/restaurants/rest.dart';
+import 'package:haven/view/customer/cart.dart';
 
+late String session_id;
 late String session_email;
 late String session_fname;
 late String session_lname;
 late Uint8List session_photo;
 late bool isDark = false;
 
-final String ip = "192.168.91.42";
+final String ip = "192.168.1.101";
 void main() {
   runApp(MyApp());
 }
@@ -60,6 +62,7 @@ class _MyAppState extends State<MyApp> {
         searsh_screen.id: (context) => searsh_screen(),
         rest.id: (context) => rest(),
         FullMenu.id: (context) => FullMenu(),
+        cart.id: (context) => cart(),
       },
     );
   }

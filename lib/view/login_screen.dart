@@ -44,6 +44,8 @@ class LoginScreen extends StatelessWidget {
         } else {
           var red = jsonDecode(res.body) as Map<String, dynamic>;
           // 202010301@aiu.edu.sy
+          
+          session_id = pass;
           session_email = email;
           session_fname = red['firstname'];
           session_lname = red['lastname'];
