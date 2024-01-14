@@ -1,6 +1,10 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:haven/function_front/card_menu.dart';
+import 'package:haven/function_front/menu_appbar.dart';
+import 'package:haven/function_front/rest_menu_info.dart';
+import 'package:haven/view/customer/details_screen.dart';
 import 'home_screen.dart';
 import 'package:haven/main.dart';
 import '../constance.dart';
@@ -8,9 +12,11 @@ import '../../function_front/item_food.dart';
 
 import 'package:http/http.dart' as http;
 
-List<String>? SearshdishesMapUrl;
-List<String>? SearshdishesMapName;
-List<String>? SearshdishesMapPrice;
+List<String>? dishMapIndex;
+List<String>? dishesMapdesc;
+List<String>? dishesMapUrl;
+List<String>? dishesMapName;
+List<String>? dishesMapprice;
 
 class searsh_screen extends StatefulWidget {
   const searsh_screen({super.key});
@@ -25,15 +31,17 @@ class _searsh_screenState extends State<searsh_screen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    get_searsh();
+    get_dishes();
   }
 
-  Future get_searsh() async {
+  Future get_dishes() async {
     String search = textEditingController_searsh.text;
     var url = "http://$ip/PROJECT/fun/searshMeal.php?s=$search";
-    SearshdishesMapUrl = [];
-    SearshdishesMapName = [];
-    SearshdishesMapPrice = [];
+    dishMapIndex = [];
+    dishesMapdesc = [];
+    dishesMapUrl = [];
+    dishesMapName = [];
+    dishesMapprice = [];
     var res = await http.get(Uri.parse(url));
     print(res.statusCode);
     if (res.statusCode == 200) {
@@ -46,9 +54,16 @@ class _searsh_screenState extends State<searsh_screen> {
     var meals = data['meals'] as List<dynamic>;
     for (final meal in meals) {
       setState(() {
-        SearshdishesMapName?.add(meal['strMeal']);
-        SearshdishesMapUrl?.add(meal['strMealThumb']);
-        SearshdishesMapPrice?.add(meal['price']);
+        dishMapIndex?.add(meal['idMeal']);
+        dishesMapName?.add(meal['strMeal']);
+        dishesMapUrl?.add(meal['strMealThumb']);
+        dishesMapdesc?.add(meal['strMealThumb']);
+
+        if (meal.containsKey('price') && meal['price'] != null) {
+          dishesMapprice?.add(meal['price']);
+        } else {
+          dishesMapprice?.add('0');
+        }
       });
     }
   }
@@ -63,18 +78,38 @@ class _searsh_screenState extends State<searsh_screen> {
           centerTitle: true,
         ),
         backgroundColor: kMainColor,
-        body: GridView.builder(
-            shrinkWrap: true,
-            itemCount: SearshdishesMapUrl?.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 0.0,
-                mainAxisSpacing: 0,
-                childAspectRatio: 0.75),
-            itemBuilder: (context, index) {
-              return ItemFood(index, SearshdishesMapUrl!, SearshdishesMapName!,
-                  SearshdishesMapPrice!);
-            }),
+        body: CustomScrollView(slivers: [
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (BuildContext context, int index) {
+                return InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailsScreen(
+                          id: dishMapIndex![index],
+                          des: dishesMapdesc![index],
+                          url: dishesMapUrl![index],
+                          name: dishesMapName![index],
+                          price: dishesMapprice![index],
+                        ),
+                      ),
+                    );
+                  },
+                  child: ItemCard(
+                    index,
+                    dishMapIndex!,
+                    dishesMapUrl!,
+                    dishesMapName!,
+                    dishesMapprice!,
+                  ),
+                );
+              },
+              childCount: dishesMapUrl?.length ?? 0,
+            ),
+          ),
+        ]),
       ),
     );
   }

@@ -4,16 +4,19 @@ import 'package:haven/view/customer/menu_screen.dart';
 import '../view/constance.dart';
 
 class DetailsWedgit extends StatefulWidget {
-  final List<String> urls;
-  final List<String> names;
-  final List<String> prices;
+  final String ids;
+  final String des;
+  final String urls;
+  final String names;
+  final String prices;
 
-  const DetailsWedgit({
+  DetailsWedgit({
+    required this.ids,
+    required this.des,
     required this.urls,
     required this.names,
     required this.prices,
-    Key? key,
-  }) : super(key: key);
+  });
 
   @override
   State<DetailsWedgit> createState() => _DetailsWedgitState();
@@ -36,21 +39,29 @@ class _DetailsWedgitState extends State<DetailsWedgit> {
 
   @override
   Widget build(BuildContext context) {
+    String ids = widget.ids;
+    String dess = widget.des;
+    String urls = widget.urls;
+    String names = widget.names;
+    String prices = widget.prices;
     Size size = MediaQuery.of(context).size;
     return ListView(
       children: [
         Stack(
           children: [
             SizedBox(
-              height: size.height * 0.35,
+              height: size.height * 0.5,
               child: ClipRRect(
-                  borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(20),
-                      bottomRight: Radius.circular(20)),
-                  child: Image.asset(
-                    "images/foo.webp",
+                borderRadius: const BorderRadius.only(
+                    bottomLeft: Radius.circular(40),
+                    bottomRight: Radius.circular(40)),
+                child: Center(
+                  child: Image.network(
+                    urls,
                     fit: BoxFit.cover,
-                  )),
+                  ),
+                ),
+              ),
             ),
             InkWell(
               child: Padding(
@@ -78,9 +89,9 @@ class _DetailsWedgitState extends State<DetailsWedgit> {
           child: Row(
             children: [
               Text(
-                "name of item",
+                names,
                 style: TextStyle(
-                    fontSize: 25, fontWeight: FontWeight.bold, color: ktext),
+                    fontSize: 27, fontWeight: FontWeight.bold, color: ktext),
               ),
             ],
           ),
@@ -90,7 +101,7 @@ class _DetailsWedgitState extends State<DetailsWedgit> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Text(
-                "250\$",
+                "$prices\$",
                 style: TextStyle(
                     fontSize: 25, fontWeight: FontWeight.bold, color: ktext),
               ),
@@ -113,7 +124,7 @@ class _DetailsWedgitState extends State<DetailsWedgit> {
             Text(
               "${amount}",
               style: TextStyle(
-                  fontSize: 25, fontWeight: FontWeight.bold, color: ktext),
+                  fontSize: 24, fontWeight: FontWeight.bold, color: ktext),
             ),
             SizedBox(
               width: 4,
@@ -135,12 +146,12 @@ class _DetailsWedgitState extends State<DetailsWedgit> {
           ],
         ),
         SizedBox(
-          height: size.height * 0.41,
+          height: size.height * 0.26,
           child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: Text(
-              "should to add description and details and explanation",
-              style: TextStyle(fontSize: 20, color: ktext),
+              dess,
+              style: TextStyle(fontSize: 22, color: ktext),
             ),
           ),
         ),

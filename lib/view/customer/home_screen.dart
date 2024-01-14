@@ -144,19 +144,6 @@ class _HomePageState extends State<home_screen> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, Menu.id);
-                      },
-                      child: Text(
-                        "Show All ",
-                        style: TextStyle(
-                          color: BlurStyle,
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
                   ],
                 ),
                 ///////////////////////////////

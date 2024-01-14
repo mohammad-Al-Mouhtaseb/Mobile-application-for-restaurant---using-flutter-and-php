@@ -11,9 +11,11 @@ import 'details_screen.dart';
 
 import 'package:haven/main.dart';
 
+List<String>? dishMapIndex;
 List<String>? dishesMapUrl;
 List<String>? dishesMapName;
 List<String>? dishesMapprice;
+List<String>? dishesMapdesc;
 
 class FullMenu extends StatefulWidget {
   const FullMenu({Key? key}) : super(key: key);
@@ -30,9 +32,11 @@ class _FullMenuState extends State<FullMenu> {
 
   Future get_dishes() async {
     var url = "http://$ip/PROJECT/fun/getAllMeal.php";
+    dishMapIndex = [];
     dishesMapUrl = [];
     dishesMapName = [];
     dishesMapprice = [];
+    dishesMapdesc = [];
     var res = await http.get(Uri.parse(url));
     print(res.statusCode);
     if (res.statusCode == 200) {
@@ -45,14 +49,13 @@ class _FullMenuState extends State<FullMenu> {
     var meals = data['meals'] as List<dynamic>;
     for (final meal in meals) {
       setState(() {
+        dishesMapdesc?.add(meal['description']);
         dishesMapName?.add(meal['strMeal']);
         dishesMapUrl?.add(meal['strMealThumb']);
-
-        // Check if the 'price' field exists and is not null
+        dishMapIndex?.add(meal['idMeal']);
         if (meal.containsKey('price') && meal['price'] != null) {
           dishesMapprice?.add(meal['price']);
         } else {
-          // Handle the case when 'price' is missing or not in the expected format
           dishesMapprice?.add('0');
         }
       });
@@ -78,6 +81,8 @@ class _FullMenuState extends State<FullMenu> {
                       context,
                       MaterialPageRoute(
                         builder: (context) => DetailsScreen(
+                          id: dishMapIndex![index],
+                          des: dishesMapdesc![index],
                           url: dishesMapUrl![index],
                           name: dishesMapName![index],
                           price: dishesMapprice![index],
@@ -87,6 +92,7 @@ class _FullMenuState extends State<FullMenu> {
                   },
                   child: ItemCard(
                     index,
+                    dishMapIndex!,
                     dishesMapUrl!,
                     dishesMapName!,
                     dishesMapprice!,

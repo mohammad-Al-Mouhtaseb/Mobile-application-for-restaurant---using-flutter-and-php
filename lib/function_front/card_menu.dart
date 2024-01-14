@@ -1,23 +1,56 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
-
+import 'package:haven/function_front/showdialog.dart';
+import 'package:haven/main.dart';
 import '../view/constance.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class ItemCard extends StatelessWidget {
   int active_fav = 0;
   late int _index;
+  late List _dishIndex;
   late List _url;
   late List _name;
   late List _price;
-  ItemCard(int index, List url, List name, List price) {
+  ItemCard(int index, List dishIndex, List url, List name, List price) {
     _index = index;
     _url = url;
     _name = name;
     _price = price;
+    _dishIndex = dishIndex;
   }
   @override
   Widget build(BuildContext context) {
+    Future addFevotite(String email, String idmeal) async {
+      var url = "http://$ip/PROJECT/fun/addFavorite.php/";
+      var res = await http.post(
+        Uri.parse(url),
+        body: {
+          'email': email,
+          'dishid': idmeal,
+        },
+      );
+      if (res.statusCode == 200) {
+        if (jsonDecode(res.body) == null || jsonDecode(res.body) == false) {
+          showdialog(
+            context,
+            "Error",
+            "Already exist.",
+            "Ok",
+          );
+        } else {
+          showdialog(
+            context,
+            "Sucsess",
+            "Added to favorite.",
+            "Ok",
+          );
+        }
+      }
+    }
+
     Size size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.all(4.0),
@@ -44,7 +77,7 @@ class ItemCard extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 10),
                     child: Text(
-                      _name[_index++],
+                      _name[_index],
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
@@ -55,7 +88,7 @@ class ItemCard extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        _price[_index++],
+                        _price[_index],
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),
@@ -79,9 +112,12 @@ class ItemCard extends StatelessWidget {
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(right: 0.9),
-                  child: Icon(
-                    active_fav == 0 ? Icons.favorite_border : Icons.favorite,
-                    size: 30,
+                  child: IconButton(
+                    icon: Icon(Icons.favorite_border),
+                    onPressed: () {
+                      addFevotite(session_email, _dishIndex[_index]);
+                    },
+                    iconSize: 30,
                     color: const Color.fromARGB(255, 91, 4, 4),
                   ),
                 ),

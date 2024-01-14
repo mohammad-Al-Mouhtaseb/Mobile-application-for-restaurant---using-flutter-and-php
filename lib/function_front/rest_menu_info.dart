@@ -73,7 +73,7 @@ class RestaurantInfo extends StatelessWidget {
                       title: "25",
                       subtitle: "Minutes",
                     ),
-                    const SizedBox(width: 24),
+                    const SizedBox(width: 15),
                     const Spacer(),
                     OutlinedButton(
                       onPressed: () {
@@ -81,7 +81,7 @@ class RestaurantInfo extends StatelessWidget {
                       },
                       style: OutlinedButton.styleFrom(
                         primary: Color.fromARGB(255, 34, 69, 164),
-                        fixedSize: const Size(120, 40),
+                        fixedSize: const Size(140, 40),
                         side: const BorderSide(
                             color: Color.fromARGB(255, 34, 69, 164)),
                         shape: const RoundedRectangleBorder(

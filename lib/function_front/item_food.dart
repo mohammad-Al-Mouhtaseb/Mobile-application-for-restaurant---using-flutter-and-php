@@ -57,7 +57,7 @@ class ItemFood extends StatelessWidget {
                 //  borderRadius: BorderRadius.only(topLeft: Radius.circular(20)),
 
                 child: SizedBox(
-                  height: size.height * 0.23,
+                  height: size.height * 0.2,
                   child: Image.network(
                     _url[_index],
                     fit: BoxFit.cover,
