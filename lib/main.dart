@@ -21,7 +21,7 @@ late String session_lname;
 late Uint8List session_photo;
 late bool isDark = false;
 
-final String ip = "192.168.1.101";
+final String ip = "192.168.137.107";
 void main() {
   runApp(MyApp());
 }
@@ -34,21 +34,32 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    // dynamic theem() {
-    //   return SwitchListTile(
-    //     title: Text('Dark Mode'),
-    //     value: isDark,
-    //     onChanged: (valuetheem) {
-    //       // When the switch is flipped, update _isDark and rebuild the UI.
-    //       setState(() {
-    //         isDark = valuetheem;
-    //       });
-    //     },print('');
-    //   );
-    // }
+    dynamic theem() {
+      return SwitchListTile(
+        title: Text('Dark Mode'),
+        value: isDark,
+        onChanged: (valuetheem) {
+          // When the switch is flipped, update _isDark and rebuild the UI.
+          setState(() {
+            isDark = valuetheem;
+          });
+        },
+      );
+    }
 
     return MaterialApp(
-      theme: isDark ? ThemeData.dark() : ThemeData.light(),
+      theme: isDark
+          ? ThemeData.dark()
+          : ThemeData(
+              scaffoldBackgroundColor: Color.fromARGB(255, 159, 190, 223),
+              appBarTheme: AppBarTheme(
+                  backgroundColor: Color.fromARGB(149, 159, 190, 223)),
+              textTheme: TextTheme(
+                  bodySmall: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20)),
+            ),
       debugShowCheckedModeBanner: false,
       initialRoute: Splash_screen.id,
       routes: {

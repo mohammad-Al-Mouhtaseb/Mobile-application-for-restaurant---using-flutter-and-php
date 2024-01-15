@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:haven/main.dart';
+import 'them.dart';
 
 class setting_screen extends StatefulWidget {
   const setting_screen({super.key});
@@ -19,6 +20,7 @@ class _MyWidgetState extends State<setting_screen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            them(),
             ListTile(
               title: Text('About Us'),
             ),
