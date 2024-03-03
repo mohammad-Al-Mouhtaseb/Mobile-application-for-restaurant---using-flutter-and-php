@@ -19,3 +19,6 @@
   <br>
   *for login to system as admin (restorant admin): use "email":admin , "password":0000
 </p>
+<img src='https://github.com/mohammad-Al-Mouhtaseb/map/assets/83731873/0241cd25-7ee0-4ab4-b771-25f68a3f30f2'>
+![image](https://github.com/mohammad-Al-Mouhtaseb/map/assets/83731873/0241cd25-7ee0-4ab4-b771-25f68a3f30f2)
+![image](https://github.com/mohammad-Al-Mouhtaseb/map/assets/83731873/d229d086-1bbe-4a10-a6db-2b71de865450)
